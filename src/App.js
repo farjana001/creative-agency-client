@@ -15,15 +15,35 @@ import Admin from './Components/Pages/Admin/Admin/Admin';
 import MakeAdmin from './Components/Pages/Admin/MakeAdmin/MakeAdmin';
 import Order from './Components/Pages/Customer/Order/Order';
 import { useState } from 'react';
+import service1 from './images/icons/service1.png';
+import service2 from './images/icons/service2.png';
+import service3 from './images/icons/service3.png';
 
 export const userContext = createContext();
 
 
 function App() {
+  const serviceData = [
+    {
+        icon: service1,
+        title: 'Web & Mobile design',
+        details: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
+    },
+    {
+        icon: service2,
+        title: 'Graphic design',
+        details: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
+    },
+    {
+        icon: service3,
+        title: 'Web development',
+        details: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
+    }
+];
   const [loggedInUser, loggedOutUser] = useState([]);
 
   return (
-    <userContext.Provider value={[loggedInUser, loggedOutUser]}>
+    <userContext.Provider value={{value1:[loggedInUser, loggedOutUser], value2: serviceData }}>
       <Router>
         <Switch>
           <Route exact path="/">

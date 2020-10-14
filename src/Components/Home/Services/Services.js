@@ -1,27 +1,11 @@
-import React from 'react';
-import service1 from '../../../images/icons/service1.png'
-import service2 from '../../../images/icons/service2.png'
-import service3 from '../../../images/icons/service3.png'
+import React, { useContext } from 'react';
+import { userContext } from '../../../App';
 import ServiceDetails from '../ServiceDetails/ServiceDetails';
 
 const Services = () => {
-    const serviceData = [
-        {
-            icon: service1,
-            title: 'Web & Mobile design',
-            details: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
-        },
-        {
-            icon: service2,
-            title: 'Graphic design',
-            details: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
-        },
-        {
-            icon: service3,
-            title: 'Web development',
-            details: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
-        }
-    ];
+    const {value2} = useContext(userContext);
+    const serviceData = value2;
+
     return (
         <section>
             <div className="container">

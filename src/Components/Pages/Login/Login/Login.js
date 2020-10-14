@@ -9,7 +9,8 @@ import "firebase/auth";
 import firebaseConfig from '../FirebaseConfig/FirebaseConfig';
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const {value1} = useContext(userContext);
+    const [loggedInUser, setLoggedInUser] = value1;
 
     const history = useHistory();
     const location = useLocation();
@@ -29,7 +30,7 @@ const Login = () => {
             .then(result => {
                 const { displayName, email, photoURL } = result.user;
                 const signedInUser = { name: displayName, email, photo: photoURL };
-                console.log(signedInUser);
+                // console.log(signedInUser);
                 setLoggedInUser(signedInUser);
                 history.replace(from);
             })

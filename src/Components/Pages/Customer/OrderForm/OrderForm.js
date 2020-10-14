@@ -1,30 +1,51 @@
 import React from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { userContext } from "../../../../App";
 import './OrderForm.css'
 
 const OrderForm = () => {
 
+    const { value1 } = useContext(userContext);
+    const [loggedInUser, setLoggedInUser] = value1;
+
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        const orderDetails = { data: data }
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderDetails)
+        })
+        .then(res => res.json())
+        .then(success => {
+            if(success){
+                alert('Your order placed successfully')
+            }
+        })
+        document.getElementById('orderForm').reset();
+    }
 
     return (
         <div className="form-body pt-5">
-            <form className='' onSubmit={handleSubmit(onSubmit)}>
+            <form id="orderForm" onSubmit={handleSubmit(onSubmit)}>
 
                 <input
                     className='field-input'
                     name="name"
-                    // defaultValue={loggedInUser.name}
+                    defaultValue={loggedInUser.name}
                     ref={register({ required: true })}
-                    placeholder="Your name / company's name" /> <br />
-                {errors.name && <span className='error'>Name is required</span>}
+                    placeholder="Your name / company's name" />
+                {errors.name && <span className='error'> Name is required</span>}
+                <br />
 
 
                 <input
                     className='field-input' name="email"
-                    // defaultValue={loggedInUser.email}
-                    ref={register({ required: true })} placeholder='Your email' /> <br />
-                {errors.email && <span className='error'>Email is required</span>}
+                    defaultValue={loggedInUser.email}
+                    ref={register({ required: true })} placeholder='Your email' />
+                {errors.email && <span className='error'> Email is required</span>}
+                <br />
 
 
                 <input
@@ -32,8 +53,9 @@ const OrderForm = () => {
                     name="title"
                     type="text"
                     ref={register({ required: true })}
-                    placeholder='Service title' /> <br />
-                {errors.date && <span className='error'>Date is required</span>}
+                    placeholder='Service title' /> 
+                {errors.title && <span className='error'> This fieldis required</span>}
+                <br />
 
 
                 <textarea
@@ -41,15 +63,17 @@ const OrderForm = () => {
                     rows="5"
                     name="details"
                     ref={register({ required: true })}
-                    placeholder='Project details' /> <br />
-                {errors.description && <span className='error'>This field is required</span>}
+                    placeholder='Project details' /> 
+                {errors.details && <span className='error'> This field is required</span>}
+                <br />
 
                 <input
                     className='field-input'
                     name="price"
                     // defaultValue={cardTitle}
                     ref={register({ required: true })}
-                    placeholder='price' /> <br/>
+                    placeholder='price' />
+                    {errors.price && <span className='error'> This field is required</span>} <br />
 
                 <input className='btn-brand' type="submit" value="Send" />
             </form>

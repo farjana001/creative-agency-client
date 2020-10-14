@@ -3,8 +3,27 @@ import { Link } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import logo from '../../../../images/logos/logo.png';
 import ServiceDetails from '../ServiceDetails/ServiceDetails';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { userContext } from '../../../../App';
+import { useContext } from 'react';
 
 const ServiceList = () => {
+    const { value1 } = useContext(userContext);
+    const [loggedInUser, setLoggedInUser] = value1;
+    const [placedOrder, setPlacedOrder] = useState([]);
+
+    const userEmail = { ...loggedInUser }
+   
+
+    useEffect(() => {
+        fetch('http://localhost:5000/orders')
+            .then(res => res.json())
+            .then(data => setPlacedOrder(data))
+    }, [])
+
+    const selectedOrder = placedOrder.filter(order => order.data.email === userEmail.email)
+
     return (
         <main>
         <div className="sticky">
@@ -18,7 +37,10 @@ const ServiceList = () => {
                 </div>
             </div>
             <div className="order-body">
-                <ServiceDetails />
+                {
+                    selectedOrder.map(order => <ServiceDetails key={order._id} orders={order} />)
+                }
+                
             </div>
         </div>
     </main>

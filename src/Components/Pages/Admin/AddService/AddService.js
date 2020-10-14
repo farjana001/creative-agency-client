@@ -1,61 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import './AddService.css';
 
 
 const AddService = () => {
+    const [info, setInfo] = useState({});
+    const [file, setFile] = useState(null);
 
-    const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => {
+    const handleBlur = (e) => {
+        const newInfo ={...info};
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
+    }
+
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
+    }
+
+    const handleSubmit = (e) => {
+
+        const formData = new FormData()
+        formData.append('file', file);
+        formData.append('title', info.title);
+        formData.append('description', info.description);
+      
         fetch('http://localhost:5000/addService', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+          method: 'POST',
+          body: formData
         })
-        .then(res => res.json())
-        .then(success => {
-            if(success){
-                alert('New Service added successfully');
-            }
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
         })
-    };
-
+        .catch(error => {
+          console.error(error)
+        })
+        document.getElementById('submitForm').reset();
+        e.preventDefault();
+    }
     return (
         <main>
             <div className="form-body pt-5 ">
-                <form className='' onSubmit={handleSubmit(onSubmit)}>
+
+                <form onSubmit={handleSubmit} id="submitForm">
                     <div className="row bg-white admin-form p-5">
                         <div className="col-md-5">
                             <h6>Service Title</h6>
-                            <input
-                                className='form-control'
-                                name="title"
-                                // defaultValue={loggedInUser.name}
-                                ref={register({ required: true })}
-                                placeholder="Enter title" /> <br />
-                            {errors.title && <span className='error'>Name is required</span>}
+                            <div className="form-group">
+                                <input onBlur={handleBlur} type="text" name="title" className="form-control p-3" placeholder="Enter Title" />
+                            </div>
 
                             <h6>Description</h6>
-                            <textarea
-                                className='form-control'
-                                rows="5"
-                                name="details"
-                                ref={register({ required: true })}
-                                placeholder='Project details' /> <br />
-                            {errors.details && <span className='error'>This field is required</span>}
+                            <div className="form-group">
+                                <textarea onBlur={handleBlur} name="description" className="form-control p-2" rows="5" placeholder="Description"></textarea>
+                            </div>
                         </div>
                         <div className="col-md-5">
                             <h6>Icon</h6>
-                            {/* <input
-                                className='form-control' 
-                                name="icon"
-                                type="file"
-                                // defaultValue={loggedInUser.email}
-                                ref={register({ required: true })} placeholder="Upload image" /> <br />
-                            {errors.icon && <span className='error'>Email is required</span>} */}
-                           
+                            <div className="form-group">
+                                <input onChange={handleFileChange} type="file" className="form-control pb-4" placeholder=" Upload image" />
+                            </div>
                         </div>
                     </div>
                     <div className="addServiceBtn"><input className='btn btn-success' type="submit" value="Submit" /></div>

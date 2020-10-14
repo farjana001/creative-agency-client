@@ -5,6 +5,7 @@ import logo from '../../../../images/logos/logo.png';
 import AdminServiceTable from '../AdminServiceTable/AdminServiceTable';
 
 const AdminServiceList = () => {
+
     return (
         <main>
             <div className="sticky">
