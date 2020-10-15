@@ -6,17 +6,14 @@ const ServiceDetails = ({ orders }) => {
     const { title, details } = orders.data;
     console.log(title, orders);
     return (
-        <div style={{ marginLeft: '20%' }} className="pt-5">
-            <div className="row">
-                <div className="col-md-5">
-                    <div style={{ borderRadius: '20px' }} className="single-service bg-white p-5">
-                        <img style={{ height: '65px' }} src={icon1} alt="" className="img-fluid mb-3" />
-                        <h5>{title}</h5>
-                        <p>{details}</p>
-                    </div>
-                </div>
+        <div className="col-md-5 pt-5">
+            <div style={{ borderRadius: '20px' }} className="single-service bg-white p-5">
+                <img style={{ height: '65px' }} src={icon1} alt="" className="img-fluid mb-3" />
+                <h5>{title}</h5>
+                <p>{details}</p>
             </div>
         </div>
+
     );
 };
 

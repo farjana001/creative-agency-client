@@ -44,7 +44,7 @@ const AddService = () => {
             <div className="form-body pt-5 ">
 
                 <form onSubmit={handleSubmit} id="submitForm">
-                    <div className="row bg-white admin-form p-5">
+                    <div style={{width:'80%'}} className="row bg-white admin-form p-5">
                         <div className="col-md-5">
                             <h6>Service Title</h6>
                             <div className="form-group">
@@ -63,7 +63,7 @@ const AddService = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="addServiceBtn"><input className='btn btn-success' type="submit" value="Submit" /></div>
+                    <div className="addServiceBtn"><input className='btn btn-success px-5' type="submit" value="Submit" /></div>
                 </form>
             </div>
         </main>

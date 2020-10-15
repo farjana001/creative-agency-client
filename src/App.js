@@ -18,6 +18,7 @@ import service1 from './images/icons/service1.png';
 import service2 from './images/icons/service2.png';
 import service3 from './images/icons/service3.png';
 import AdminHome from './Components/Pages/Admin/AdminHome/AdminHome';
+import Admin from './Components/Pages/Admin/Admin/Admin';
 // import PrivateRoute from './Components/Pages/Login/PrivateRoute/PrivateRoute';
 
 
@@ -74,6 +75,9 @@ function App() {
           </Route>
           <Route path="/admin">
             <AdminHome />
+          </Route>
+          <Route path="/addedService">
+            <Admin />
           </Route>
           <Route path="/makeAdmin">
             <MakeAdmin />

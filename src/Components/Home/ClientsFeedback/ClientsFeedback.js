@@ -1,9 +1,7 @@
 import React from 'react';
-import client1 from '../../../images/customer-1.png';
 
 const ClientsFeedback = ({ review }) => {
     const {name, companyName, details} = review.data;
-console.log(review);
     
     return (
         

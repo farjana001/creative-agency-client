@@ -14,7 +14,7 @@ const ServiceList = () => {
     const [placedOrder, setPlacedOrder] = useState([]);
 
     const userEmail = { ...loggedInUser }
-   
+
 
     useEffect(() => {
         fetch('http://localhost:5000/orders')
@@ -26,24 +26,28 @@ const ServiceList = () => {
 
     return (
         <main>
-        <div className="sticky">
-            <Sidebar />
-            <div className="row">
-                <div className="col-md-3 py-3">
-                    <Link to="/home"><img className="logo ml-5" src={logo} alt="" /></Link>
+            <div className="sticky">
+                <Sidebar />
+                <div className="row">
+                    <div className="col-md-3 py-3">
+                        <Link to="/home"><img className="logo ml-5" src={logo} alt="" /></Link>
+                    </div>
+                    <div className="col-md-9">
+                        <h4 className="order-heading">Service List</h4>
+                    </div>
                 </div>
-                <div className="col-md-9">
-                    <h4 className="order-heading">Service List</h4>
+                <div className="container">
+                    <div className="order-body">
+                        <div  style={{ marginLeft: '10%' }}  className="row">
+                            {
+                                selectedOrder.map(order => <ServiceDetails key={order._id} orders={order} />)
+                            }
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className="order-body">
-                {
-                    selectedOrder.map(order => <ServiceDetails key={order._id} orders={order} />)
-                }
-                
-            </div>
-        </div>
-    </main>
+        </main>
     );
 };
 

@@ -15,7 +15,7 @@ const AdminSidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link className="text-secondary font-weight-bold" to="/admin">
+                    <Link className="text-secondary font-weight-bold" to="/addedService">
                         <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
                     </Link>
                 </li>
