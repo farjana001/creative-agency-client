@@ -15,6 +15,7 @@ const Services = () => {
                         {
                             serviceData.map(srv => <ServiceDetails key={srv.title} services={srv} />)
                         }
+                     
                     </div>
                 </div>
             </div>

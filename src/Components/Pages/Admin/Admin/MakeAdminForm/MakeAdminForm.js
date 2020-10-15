@@ -15,10 +15,11 @@ const MakeAdminForm = () => {
                 alert('Added email successfully');
             }
         })
+        document.getElementById('email').reset();
     }
     return (
         <div className="form-body pt-5">
-        <form style={{borderRadius:'15px', padding:'20px 0 100px 50px'}} className='bg-white w-75' onSubmit={handleSubmit(onSubmit)}>
+        <form id="email" style={{borderRadius:'15px', padding:'20px 0 100px 50px'}} className='bg-white w-75' onSubmit={handleSubmit(onSubmit)}>
             <h6>Email</h6>
           <div className="row">
           <input

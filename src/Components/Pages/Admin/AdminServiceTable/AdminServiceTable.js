@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Status from '../Status/Status';
 
 
 const AdminServiceTable = () => {
@@ -35,7 +36,7 @@ const AdminServiceTable = () => {
                                     <td>{order.data.email}</td>
                                     <td>{order.data.title}</td>
                                     <td>{order.data.details}</td>
-                                    <td>done</td>
+                                    <td><Status /></td>
                                 </tr>
                             )
                         }

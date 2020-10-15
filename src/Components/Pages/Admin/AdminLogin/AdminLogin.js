@@ -2,20 +2,19 @@ import React, { useContext } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import logo from '../../../../images/logos/logo.png';
 import googleIcon from '../../../../images/icons/google.png';
-import './Login.css';
 import { userContext } from '../../../../App';
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from '../FirebaseConfig/FirebaseConfig';
+import firebaseConfig from '../../Login/FirebaseConfig/FirebaseConfig';
 
-const Login = () => {
+const AdminLogin = () => {
     const { value1 } = useContext(userContext);
     const [loggedInUser, setLoggedInUser] = value1;
 
     const history = useHistory();
     const location = useLocation();
 
-    let { from } = location.state || { from: { pathname: "/order" } };
+    let { from } = location.state || { from: { pathname: "/admin" } };
 
     // initializing firebase app
     if (firebase.apps.length === 0) {
@@ -54,4 +53,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default AdminLogin;
