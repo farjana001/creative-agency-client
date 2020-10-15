@@ -8,7 +8,7 @@ import {  faFileAlt } from '@fortawesome/free-regular-svg-icons'
 const Sidebar = () => {
 
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4 mt-5" style={{ height: "100vh" }}>
+        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled ml-3 mt-5">
                 <li>
                     <Link to="/order" className="text-secondary font-weight-bold">

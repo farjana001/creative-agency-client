@@ -1,5 +1,6 @@
 import React from 'react';
-import ClientsFeedback from '../ClientsFeedback/ClientsFeedback';
+import ShowReview from '../../Pages/Customer/Review/ShowReview/ShowReview';
+// import ClientsFeedback from '../ClientsFeedback/ClientsFeedback';
 import ContactForm from '../ContactForm/ContactForm';
 import Header from '../Header/Header';
 import LogoBar from '../LogoBar/LogoBar';
@@ -14,7 +15,8 @@ const Home = () => {
             <LogoBar />
             <Services />
             <Works />
-            <ClientsFeedback />
+            <ShowReview />
+            {/* <ClientsFeedback /> */}
             <ContactForm />
         </main>
     );

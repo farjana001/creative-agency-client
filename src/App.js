@@ -11,13 +11,15 @@ import Login from './Components/Pages/Login/Login/Login';
 import ServiceList from './Components/Pages/Customer/ServiceList/ServiceList';
 import Review from './Components/Pages/Customer/Review/Review';
 import AdminServiceList from './Components/Pages/Admin/AdminServiceList/AdminServiceList';
-import Admin from './Components/Pages/Admin/Admin/Admin';
 import MakeAdmin from './Components/Pages/Admin/MakeAdmin/MakeAdmin';
 import Order from './Components/Pages/Customer/Order/Order';
 import { useState } from 'react';
 import service1 from './images/icons/service1.png';
 import service2 from './images/icons/service2.png';
 import service3 from './images/icons/service3.png';
+import AdminHome from './Components/Pages/Admin/AdminHome/AdminHome';
+// import PrivateRoute from './Components/Pages/Login/PrivateRoute/PrivateRoute';
+
 
 export const userContext = createContext();
 
@@ -70,8 +72,8 @@ function App() {
           <Route path="/adminServiceList">
             <AdminServiceList />
           </Route>
-          <Route path="/addService">
-            <Admin />
+          <Route path="/admin">
+            <AdminHome />
           </Route>
           <Route path="/makeAdmin">
             <MakeAdmin />
