@@ -26,3 +26,4 @@ A single page service selling web app.
 * Express.js
 
 [Back-end Repository](https://github.com/farjana001/creative-agency-server)
+[Resume](https://drive.google.com/file/d/1l-BxPeVAvRoGX8ZJbENxtGiR-8YqpaGN/view?usp=sharing)
