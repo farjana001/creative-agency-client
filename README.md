@@ -1,6 +1,6 @@
 # Creative Agency
 A single page service selling app 
-[Live Website(https://github.com/farjana001/assignment-10)]
+[Live Website](https://github.com/farjana001/assignment-10)
 
 
 ### Features 
@@ -24,4 +24,4 @@ A single page service selling app
 * MongoDB
 * Express.js
 
-[Back-end Repository(https://github.com/farjana001/creative-agency-server)]
+[Back-end Repository](https://github.com/farjana001/creative-agency-server)
