@@ -1,5 +1,5 @@
 # Creative Agency
-A single page service selling app 
+A single page service selling web app. 
 
 [Live Website](https://github.com/farjana001/assignment-10)
 
